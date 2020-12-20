@@ -10,11 +10,6 @@ class Pagination extends React.Component {
     };
   }
 
-  componentWillMount() {
-
-  }
-
-
   render() {
     let pages = [];
 

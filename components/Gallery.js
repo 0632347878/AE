@@ -9,6 +9,7 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       details: null,
+      isOpen: false,
       token: 'ce09287c97bf310284be3c97619158cfed026004',
       data: {}
     };
@@ -59,9 +60,14 @@ class Gallery extends React.Component {
       headers: {'Authorization': 'Bearer ' + this.state.token},
     })
     .then((response) => {
-      console.log(response);
+      this.setState({isOpen: true});
       this.setState({details: response});
     });
+  }
+
+  closeDetails() {
+    this.setState({isOpen: false});
+    this.setState({details: null});
   }
 
   componentWillMount() {
@@ -69,14 +75,16 @@ class Gallery extends React.Component {
   }
 
   render() {
-    if( this.state.data.pictures) return<div><ul className={'row'}>{
-        this.state.data.pictures.map((picture, key) =>
+    if( this.state.data.pictures) return<div>
+      <ul className={'row'}>{
+        this.state.data.pictures
+          .map((picture, key) =>
             <li className={['col-lg-3 col-sm-6']} key={key}>
               <img onClick={this.getDetails.bind(this)} id={picture.id} src={picture.cropped_picture} alt=""/>
             </li>)}
       </ul>
       <Pagination onChildClick={this.getPage.bind(this)} data={this.state.data}/>
-      <Popup/>
+      <Popup onPopupClose={this.closeDetails.bind(this)} data={this.state}/>
     </div>;
     else return <pre>Loading...</pre>
   }
