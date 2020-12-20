@@ -6,4 +6,17 @@ body {
     padding: 20px;
 }
 
+ul {
+    list-style: none;
+    padding: 0 !important;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+li {
+    margin-bottom: 25px;
+}
 

@@ -31,7 +31,10 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@popperjs/core": "^2.6.0",
     "axios": "^0.18.1",
+    "bootstrap": "^5.0.0-beta1",
+    "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
