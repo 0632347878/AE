@@ -20,7 +20,7 @@ class Gallery extends React.Component {
 
       axios({
         method: 'post',
-        url: 'http://interview.agileengine.com/auth',
+        url: 'https://interview.agileengine.com/auth',
         headers: {'Authorization': 'Bearer ' + _this.state.token},
         data: {"apiKey": "23567b218376f79d9415"}
       })
@@ -29,7 +29,7 @@ class Gallery extends React.Component {
         else console.log('auth failed');
       })
       .then((response) => {
-        axios.get('http://interview.agileengine.com/images', {
+        axios.get('https://interview.agileengine.com/images', {
           headers: {'Authorization': 'Bearer ' + _this.state.token},
         })
           .then((response) => {
@@ -45,7 +45,7 @@ class Gallery extends React.Component {
     let number = +e.target.innerHTML;
 
     if (number !== this.state.data.page) {
-      axios.get(`http://interview.agileengine.com/images?page=${number}`, {
+      axios.get(`https://interview.agileengine.com/images?page=${number}`, {
         headers: {'Authorization': 'Bearer ' + this.state.token},
       })
       .then((response) => {
@@ -56,7 +56,7 @@ class Gallery extends React.Component {
 
   getDetails(e) {
     let picId = e.target.id;
-    axios.get(`http://interview.agileengine.com/images/${picId}`, {
+    axios.get(`https://interview.agileengine.com/images/${picId}`, {
       headers: {'Authorization': 'Bearer ' + this.state.token},
     })
     .then((response) => {
