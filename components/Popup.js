@@ -6,20 +6,25 @@ class Popup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      details: null,
+      isOpen: this.props.data.isOpen
     };
   }
 
-  componentWillMount() {
-
+  componentWillUpdate() {
+    console.log('update');
   }
 
 
   render() {
-
+    console.log(this.props.data);
     return(
-      this.state.isOpen ?
-        <div className={'popup'}>1</div>
+      this.props.data.details ?
+        <div className={'popup'}>
+
+          <span onClick={this.props.onPopupClose} className="btn-close">
+          </span>
+        </div>
         : null
     )
   }
